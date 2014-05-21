@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class RSLevels extends JavaPlugin {
 	MessageHandler MH;
+	eventhandler EH;
 	@Override
 	public void onEnable () {
 		long startTime = System.currentTimeMillis();
@@ -18,10 +19,14 @@ public class RSLevels extends JavaPlugin {
 		getServer().getLogger().log(Level.INFO, "Elapsed time: " + estimatedTime);
 		try {
 			 MH = MessageHandler.class.newInstance();
+			 EH = eventhandler.class.newInstance();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
+		EH.Enable(this);
+		
+		
 	}
 	@Override
 	public void onDisable () {		
